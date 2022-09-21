@@ -23,7 +23,8 @@
 </head>
 <body>
     <header class="titulo">
-        <h1>Pruebas del Proyecto Grafo</h1>
+        <h1>Grafo</h1>
+        <h5>Por Camilo Arteta</h5>
         <br/>
     </header>
     <nav>

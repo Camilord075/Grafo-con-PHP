@@ -18,6 +18,11 @@ body {
   font-family: "Fira Sans", sans-serif;
   color: white;
 }
+.titulo h5 {
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+  color: white;
+}
 
 nav {
   text-align: center;
