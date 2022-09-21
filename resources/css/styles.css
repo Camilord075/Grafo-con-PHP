@@ -12,6 +12,7 @@ body {
 .titulo {
   background-color: #2F9BC9;
   border: 30px solid #2F9BC9;
+  text-align: center;
 }
 .titulo h1 {
   text-align: center;
