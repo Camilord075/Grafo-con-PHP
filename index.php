@@ -24,7 +24,7 @@
 <body>
     <header class="titulo">
         <h1>Grafo</h1>
-        <h5>Por Camilo Arteta</h5>
+        <h5>Por Camilo Arteta (@Camilord075) y Jean Morales (@ManguinhoEXE)</h5>
         <img src="../Grafo/images/LogoCUC.png" alt="Logo CUC" width="200px" title="Logo CUC">
         <br/>
     </header>
