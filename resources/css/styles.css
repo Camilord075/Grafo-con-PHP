@@ -17,6 +17,7 @@ body {
 .titulo h1 {
   font-family: "Fira Sans", sans-serif;
   color: white;
+  margin-bottom: 15px;
 }
 .titulo h5 {
   font-family: "Fira Sans", sans-serif;
