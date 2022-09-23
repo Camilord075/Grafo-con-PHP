@@ -10,8 +10,8 @@ body {
 }
 
 .titulo {
-  background-color: #2F9BC9;
-  border: 30px solid #2F9BC9;
+  background-color: #2f9bc9;
+  border: 30px solid #2f9bc9;
   text-align: center;
 }
 .titulo h1 {
@@ -47,14 +47,14 @@ nav li a {
   padding: 15px;
 }
 nav li a:hover {
-  background-color: #E36228;
+  background-color: #e36228;
 }
 
 #contenedor-grafo {
   margin: 100px auto;
   width: 600px;
   height: 400px;
-  border: 1px solid #2F9BC9;
+  border: 1px solid #2f9bc9;
   border-radius: 10px;
   background-color: white;
 }
@@ -64,7 +64,7 @@ nav li a:hover {
   margin: 50px auto;
   width: 400px;
   height: 200px;
-  border: 1px solid #2F9BC9;
+  border: 1px solid #2f9bc9;
   border-radius: 10px;
   background-color: white;
 }
@@ -74,7 +74,7 @@ nav li a:hover {
   margin: 50px auto;
   width: 400px;
   height: 200px;
-  border: 1px solid #2F9BC9;
+  border: 1px solid #2f9bc9;
   border-radius: 10px;
   background-color: white;
 }
@@ -108,7 +108,7 @@ nav li a:hover {
   margin: 10px auto;
 }
 .contenedor-principal .contenedor-form input[type=submit] {
-  background-color: #2F9BC9;
+  background-color: #2f9bc9;
   border: none;
   margin: 20px;
   border-radius: 10px;
@@ -128,7 +128,7 @@ nav li a:hover {
   text-align: center;
 }
 .contenedor-principal .mostrar-grafo input[type=submit] {
-  background-color: #2F9BC9;
+  background-color: #2f9bc9;
   border: none;
   margin: 20px;
   border-radius: 10px;
