@@ -49,7 +49,9 @@
                         <input type="text" id="informacion-agregar" name="informacion-agregar" placeholder="Ingrese la ID" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Agregar" name="agregar-vertice">
+                    <button type="submit" name="agregar-vertice">
+                        <ion-icon name="save-outline"></ion-icon><p>Agregar</p>
+                    </button>
                 </form>
                 <script type="text/javascript">
                     <?php
@@ -91,7 +93,9 @@
                         <input type="text" id="peso" name="peso" placeholder="Ingrese el peso" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Agregar" name="agregar-arista">
+                    <button type="submit" name="agregar-arista">
+                        <ion-icon name="save-outline"></ion-icon><p>Agregar</p>
+                    </button>
                 </form>
                 <script type="text/javascript">
                     <?php
@@ -125,7 +129,9 @@
                         <input type="text" id="informacion-eliminar" name="informacion-eliminar" placeholder="Ingrese la ID" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Eliminar" name="eliminar-vertice">
+                    <button type="submit" name="eliminar-vertice">
+                        <ion-icon name="trash-outline"></ion-icon></ion-icon><p>Eliminar</p>
+                    </button>
                 </form>
                 <script type="text/javascript">
                     <?php
@@ -164,7 +170,9 @@
                         <input type="text" id="hasta-eliminar" name="hasta-eliminar" placeholder="Ingrese un vertice" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Eliminar" name="eliminar-arista">
+                    <button type="submit" name="eliminar-arista">
+                        <ion-icon name="trash-outline"></ion-icon><p>Eliminar</p>
+                    </button>
                 </form>
                 <script type="text/javascript">
                     <?php
@@ -198,7 +206,9 @@
                         <input type="text" id="informacion-mostrar" name="informacion-mostrar" placeholder="Ingrese la ID" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Mostrar" name="mostrar-vertice">
+                    <button type="submit" name="mostrar-vertice">
+                        <ion-icon name="eye-outline"></ion-icon><p>Mostrar</p>
+                    </button>
                 </form>
                 <div id="contenedor-grafo-mostrar-vertice">
                 </div>
@@ -273,7 +283,9 @@
                         <input type="text" id="informacion-mostrar-adyacentes" name="informacion-mostrar-adyacentes" placeholder="Ingrese la ID" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Mostrar" name="mostrar-adyacentes-vertice">
+                    <button type="submit" name="mostrar-adyacentes-vertice">
+                        <ion-icon name="eye-outline"></ion-icon></ion-icon><p>Mostrar</p>
+                    </button>
                 </form>
                 <div id="contenedor-grafo-mostrar-adyacentes">
                 </div>
@@ -344,7 +356,9 @@
                         <input type="text" id="informacion-mostrar-grado" name="informacion-mostrar-grado" placeholder="Ingrese la ID" required="true">
                     </div>
                     <br/>
-                    <input type="submit" value="Mostrar" name="mostrar-grado-vertice">
+                    <button type="submit" name="mostrar-grado-vertice">
+                        <ion-icon name="eye-outline"></ion-icon></ion-icon><p>Mostrar</p>
+                    </button>
                 </form>
                 <script type="text/javascript">
                     <?php
@@ -383,7 +397,9 @@
             <div class="mostrar-grafo">
                 <h4 id="mostrar-grafo">Mostrar Grafo</h4>
                 <form action="index.php" method="post">
-                    <input type="submit" value="Mostrar Grafo" name="mostrar-grafo-btn">
+                <button type="submit" name="mostrar-grafo-btn">
+                    <ion-icon name="eye-outline"></ion-icon></ion-icon><p>Mostrar</p>
+                </button>
                 </form>
                 <script type="text/javascript">
                     var nodos = new vis.DataSet([
@@ -438,5 +454,7 @@
             </div>
         </div>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
