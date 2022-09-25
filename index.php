@@ -20,6 +20,7 @@
     <script type="text/javascript" src="../Grafo/node_modules/vis/dist/vis.js"></script>
     <link rel="stylesheet" type="text/css" href="../Grafo/node_modules/vis/dist/vis.css" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/jpg" href="../Grafo/images/Free_Sample_By_Wix.jpg">
 </head>
 <body>
     <header class="titulo">
