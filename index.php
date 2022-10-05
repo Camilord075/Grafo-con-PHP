@@ -525,108 +525,39 @@
                         <ion-icon name="eye-outline"></ion-icon><p>Mostrar</p>
                     </button>
                 </form>
-                <div id="contenedor-grafo-mostrar-recorrido-anchura">
-                </div>
-                <script type="text/javascript">
-                    var nodos = new vis.DataSet([
+            </div>
+            <script type="text/javascript">
                     <?php
-                        if(isset($_POST["mostrar-recorrido-anchura"])){
+                        if (isset($_POST["mostrar-recorrido-anchura"])) {
                             $camino = $_SESSION["grafo"]->recorridoAnchura($_POST["origen-mostrar-recorrido-anchura"]);
-                            $cadenas = array();
+                            $respuesta = "";
                             
-                            foreach($_SESSION["grafo"]->getMatriz() as $keyVector => $valorKey) {
-                                $cadenas[] = "{id: '$keyVector', label: '$keyVector'}, ";
-                            }
-                            
-                            $contador = 0;
-                            
-                            foreach($_SESSION["grafo"]->getMatriz() as $keyVector => $valorKey) {
-                                for ($i = 0; $i < count($camino); $i ++) {
-                                    $valor = $camino[$i];
-                                    
-                                    if ($valor == $keyVector) {
-                                        $cadenas[$contador] = "{id: '$keyVector', label: '$keyVector', color: {
-                                        background: '#EC7630'
-                                        }}, ";
-                                    }
+                            for ($i = 0; $i < count($camino); $i ++) {
+                                if ($i == (count($camino) - 1)) {
+                                    $respuesta .= $camino[$i];
+                                } else {
+                                    $respuesta .= $camino[$i] . " - ";
                                 }
-                                
-                                $contador ++;
                             }
                             
-                            foreach ($cadenas as $valor) {
-                                echo $valor;
+                            if (!$camino) {
+                                echo "Swal.fire({
+                                    title: 'Mostrar Recorrido Anchura',
+                                    text: 'No existe el nodo',
+                                    icon: 'error',
+                                    confirmButtonText: 'Seguir!'
+                                })";
+                            } else {
+                                echo "Swal.fire({
+                                        title: 'Mostrar Recorrido Anchura',
+                                        text: 'El recorrido es: $respuesta',
+                                        icon: 'info',
+                                        confirmButtonText: 'Seguir!'
+                                    })";
                             }
                         }
                     ?>
-                    ]);
-                    
-                    var aristas = new vis.DataSet([
-                        <?php
-                            if(isset($_POST["mostrar-recorrido-anchura"])) {
-                                $camino = $_SESSION["grafo"]->recorridoAnchura($_POST["origen-mostrar-recorrido-anchura"]);
-                                $cadenas = array();
-                                foreach ($_SESSION["grafo"]->getMatriz() as $keyVector1 => $vector1) {
-                                    if ($vector1 != null) {
-                                        foreach ($vector1 as $keyVector2 => $indice) {
-                                            $cadenas[] = "{from: '$keyVector1', to: '$keyVector2', label: '$indice'}, ";
-                                        }
-                                    }
-                                }
-                                
-                                $contador = 0;
-                                
-                                foreach ($_SESSION["grafo"]->getMatriz() as $keyVector1 => $vector1) {
-                                    if ($vector1 != null) {
-                                        foreach ($vector1 as $keyVector2 => $indice) {
-                                            for ($i = 0; $i < count($camino); $i ++) {
-                                                $valor1 = $camino[$i];
-                                                
-                                                if ($i + 1 == count($camino)) {
-                                                    break;
-                                                } else {
-                                                    $valor2 = $camino[$i + 1];
-                                                    
-                                                    if ($valor1 == $keyVector1 && $valor2 == $keyVector2) {
-                                                        $cadenas[$contador] = "{from: '$keyVector1', to: '$keyVector2', label: '$indice', color: {
-                                                            color: '#EC7630'
-                                                        }}, ";
-                                                    }
-                                                }
-                                            }
-                                            
-                                            $contador ++;
-                                        }
-                                    }
-                                }
-                                
-                                foreach ($cadenas as $valor) {
-                                    echo $valor;
-                                }
-                            }
-                        ?>
-                    ]);
-
-                    var contenedor = document.getElementById("contenedor-grafo-mostrar-recorrido-anchura");
-
-                    var datos = {
-                        nodes: nodos,
-                        edges: aristas
-                    };
-
-                    var opciones = {
-                        edges: {
-                            arrows: {
-                                to: {
-                                    enabled: true
-                                }
-                            }
-                        }
-                    };
-
-                    var grafo = new vis.Network(contenedor, datos, opciones);
-                </script>
-            </div>
+            </script>
             <div class="contenedor-form">
             <h4>Mostrar Recorrido Profundidad</h4>
                 <form action="index.php" method="post">
@@ -639,108 +570,39 @@
                         <ion-icon name="eye-outline"></ion-icon><p>Mostrar</p>
                     </button>
                 </form>
-                <div id="contenedor-grafo-mostrar-recorrido-profundidad">
-                </div>
-                <script type="text/javascript">
-                    var nodos = new vis.DataSet([
+            </div>
+            <script type="text/javascript">
                     <?php
-                        if(isset($_POST["mostrar-recorrido-profundidad"])){
+                        if (isset($_POST["mostrar-recorrido-profundidad"])) {
                             $camino = $_SESSION["grafo"]->recorridoProfundidad($_POST["origen-mostrar-recorrido-profundidad"]);
-                            $cadenas = array();
+                            $respuesta = "";
                             
-                            foreach($_SESSION["grafo"]->getMatriz() as $keyVector => $valorKey) {
-                                $cadenas[] = "{id: '$keyVector', label: '$keyVector'}, ";
-                            }
-                            
-                            $contador = 0;
-                            
-                            foreach($_SESSION["grafo"]->getMatriz() as $keyVector => $valorKey) {
-                                for ($i = 0; $i < count($camino); $i ++) {
-                                    $valor = $camino[$i];
-                                    
-                                    if ($valor == $keyVector) {
-                                        $cadenas[$contador] = "{id: '$keyVector', label: '$keyVector', color: {
-                                        background: '#EC7630'
-                                        }}, ";
-                                    }
+                            for ($i = 0; $i < count($camino); $i ++) {
+                                if ($i == (count($camino) - 1)) {
+                                    $respuesta .= $camino[$i];
+                                } else {
+                                    $respuesta .= $camino[$i] . " - ";
                                 }
-                                
-                                $contador ++;
                             }
                             
-                            foreach ($cadenas as $valor) {
-                                echo $valor;
+                            if (!$camino) {
+                                echo "Swal.fire({
+                                    title: 'Mostrar Recorrido Anchura',
+                                    text: 'No existe el nodo',
+                                    icon: 'error',
+                                    confirmButtonText: 'Seguir!'
+                                })";
+                            } else {
+                                echo "Swal.fire({
+                                        title: 'Mostrar Recorrido Anchura',
+                                        text: 'El recorrido es: $respuesta',
+                                        icon: 'info',
+                                        confirmButtonText: 'Seguir!'
+                                    })";
                             }
                         }
                     ?>
-                    ]);
-                    
-                    var aristas = new vis.DataSet([
-                        <?php
-                            if(isset($_POST["mostrar-recorrido-profundidad"])) {
-                                $camino = $_SESSION["grafo"]->recorridoProfundidad($_POST["origen-mostrar-recorrido-profundidad"]);
-                                $cadenas = array();
-                                foreach ($_SESSION["grafo"]->getMatriz() as $keyVector1 => $vector1) {
-                                    if ($vector1 != null) {
-                                        foreach ($vector1 as $keyVector2 => $indice) {
-                                            $cadenas[] = "{from: '$keyVector1', to: '$keyVector2', label: '$indice'}, ";
-                                        }
-                                    }
-                                }
-                                
-                                $contador = 0;
-                                
-                                foreach ($_SESSION["grafo"]->getMatriz() as $keyVector1 => $vector1) {
-                                    if ($vector1 != null) {
-                                        foreach ($vector1 as $keyVector2 => $indice) {
-                                            for ($i = 0; $i < count($camino); $i ++) {
-                                                $valor1 = $camino[$i];
-                                                
-                                                if ($i + 1 == count($camino)) {
-                                                    break;
-                                                } else {
-                                                    $valor2 = $camino[$i + 1];
-                                                    
-                                                    if ($valor1 == $keyVector1 && $valor2 == $keyVector2) {
-                                                        $cadenas[$contador] = "{from: '$keyVector1', to: '$keyVector2', label: '$indice', color: {
-                                                            color: '#EC7630'
-                                                        }}, ";
-                                                    }
-                                                }
-                                            }
-                                            
-                                            $contador ++;
-                                        }
-                                    }
-                                }
-                                
-                                foreach ($cadenas as $valor) {
-                                    echo $valor;
-                                }
-                            }
-                        ?>
-                    ]);
-
-                    var contenedor = document.getElementById("contenedor-grafo-mostrar-recorrido-profundidad");
-
-                    var datos = {
-                        nodes: nodos,
-                        edges: aristas
-                    };
-
-                    var opciones = {
-                        edges: {
-                            arrows: {
-                                to: {
-                                    enabled: true
-                                }
-                            }
-                        }
-                    };
-
-                    var grafo = new vis.Network(contenedor, datos, opciones);
-                </script>
-            </div>
+            </script>
             <div class="mostrar-grafo">
                 <h4 id="mostrar-grafo">Mostrar Grafo</h4>
                 <form action="index.php" method="post">

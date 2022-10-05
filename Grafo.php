@@ -186,9 +186,9 @@
                 }
 
                 return $recorrido;
+            } else {
+                return false;
             }
-            
-            return false;
         }
         
         public function recorridoAnchura($idVertice) {
@@ -219,9 +219,9 @@
                 }
 
                 return $recorrido;
+            } else {
+                return false;
             }
-            
-            return false;
         }
     }
     ?>
