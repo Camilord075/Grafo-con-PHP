@@ -93,6 +93,36 @@ nav {
   background-color: white;
 }
 
+#contenedor-grafo-mostrar-camino-corto {
+  display: inline-block;
+  margin: 50px auto;
+  width: 400px;
+  height: 200px;
+  border: 1px solid $color-titulo;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#contenedor-grafo-mostrar-recorrido-anchura {
+  display: inline-block;
+  margin: 50px auto;
+  width: 400px;
+  height: 200px;
+  border: 1px solid $color-titulo;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#contenedor-grafo-mostrar-recorrido-profundidad {
+  display: inline-block;
+  margin: 50px auto;
+  width: 400px;
+  height: 200px;
+  border: 1px solid $color-titulo;
+  border-radius: 10px;
+  background-color: white;
+}
+
 .contenedor-principal {
   .contenedor-form {
     margin: 20px 200px auto;

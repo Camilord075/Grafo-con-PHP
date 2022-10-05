@@ -40,7 +40,11 @@
         }
         
         public function getAdyacentes($id) {
-            return $this->matriz[$id];
+            if (isset($this->vector[$id])) {
+                return $this->matriz[$id];
+            }
+            
+            return false;
         }
         
         public function getMatriz() {
@@ -114,6 +118,110 @@
             }
             
             return true;
+        }
+        
+        public function caminoMasCorto($verticeA, $verticeB){
+            $pesos = array();
+            $etiquetas = array();
+            
+            if (isset($this->vector[$verticeA]) && isset($this->vector[$verticeB])) {
+                foreach (array_keys($this->matriz) as $distancia) $pesos[$distancia] = 99999;
+
+                    $pesos [$verticeA] = 0;
+
+                    while (!empty($pesos)) {
+                        $minimo = array_search(min($pesos), $pesos);
+                        if ($minimo == $verticeB) break;
+
+                        foreach ($this->matriz[$minimo] as $vertice => $distancia) if (!empty($pesos[$vertice]) && $pesos[$minimo] + $distancia < $pesos[$vertice]) {
+                            $pesos[$vertice] = $pesos[$minimo] + $distancia;
+                            $etiquetas[$vertice] = array($minimo, $pesos[$vertice]);
+                        }
+
+                        unset($pesos[$minimo]);
+                    }
+
+                    $camino = array();
+                    $posicion = $verticeB;
+
+                    while ($posicion != $verticeA) {
+                        $camino[] = $posicion;
+                        $posicion = $etiquetas[$posicion][0];
+                    }
+
+                    $camino[] = $verticeA;
+                    $camino = array_reverse($camino);
+
+                    return $camino;
+            }
+            
+            return false;
+        }
+        
+        public function recorridoProfundidad($idVertice) {
+            $pila = array();
+            $recorrido = array();
+            
+            if (isset($this->vector[$idVertice])) {
+                $valor = $this->getVertice($idVertice);
+                array_push($pila, $valor);
+                
+                while (!empty($pila)) {
+                    $nodoVisitado = array_pop($pila);
+                    
+                    if (($nodoVisitado->getVisitado()) == false) {
+                        $nodoVisitado->setVisitado(true);
+                        $recorrido[] = $nodoVisitado->getId();
+                        
+                        if ($this->getAdyacentes($nodoVisitado->getId()) != null) {
+                            foreach ($this->getAdyacentes($nodoVisitado->getId()) as $keyVector => $valorVector) {
+                                $auxiliar = $this->getVertice($keyVector);
+                                $pila[$auxiliar->getId()] = $auxiliar;
+                            }
+                        }
+                    }
+                }
+                foreach ($this->vector as $vertice) {
+                    $vertice->setVisitado(false);
+                }
+
+                return $recorrido;
+            }
+            
+            return false;
+        }
+        
+        public function recorridoAnchura($idVertice) {
+            $cola = array();
+            $recorrido = array();
+            
+            if (isset($this->vector[$idVertice])) {
+                $valor = $this->getVertice($idVertice);
+                array_push($cola, $valor);
+                
+                while (!empty($cola)) {
+                    $nodoVisitado = array_shift($cola);
+                    
+                    if (($nodoVisitado->getVisitado()) == false) {
+                        $nodoVisitado->setVisitado(true);
+                        $recorrido[] = $nodoVisitado->getId();
+                        
+                        if ($this->getAdyacentes($nodoVisitado->getId()) != null) {
+                            foreach ($this->getAdyacentes($nodoVisitado->getId()) as $keyVector => $valorVector) {
+                                $auxiliar = $this->getVertice($keyVector);
+                                $cola[$auxiliar->getId()] = $auxiliar;
+                            }
+                        }
+                    }
+                }
+                foreach ($this->vector as $vertice) {
+                    $vertice->setVisitado(false);
+                }
+
+                return $recorrido;
+            }
+            
+            return false;
         }
     }
     ?>
