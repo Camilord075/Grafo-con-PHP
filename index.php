@@ -799,6 +799,7 @@
                     var grafo = new vis.Network(contenedor, datos, opciones);
                 </script>
             </div>
+            <br/>
         </div>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
