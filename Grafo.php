@@ -187,7 +187,7 @@
 
                 return $recorrido;
             } else {
-                return false;
+                return null;
             }
         }
         

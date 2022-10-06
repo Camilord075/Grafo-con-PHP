@@ -529,31 +529,43 @@
             <script type="text/javascript">
                     <?php
                         if (isset($_POST["mostrar-recorrido-anchura"])) {
-                            $camino = $_SESSION["grafo"]->recorridoAnchura($_POST["origen-mostrar-recorrido-anchura"]);
+                            $bandera;
                             $respuesta = "";
+                            $camino;
                             
-                            for ($i = 0; $i < count($camino); $i ++) {
-                                if ($i == (count($camino) - 1)) {
-                                    $respuesta .= $camino[$i];
+                            foreach ($_SESSION["grafo"]->getVector() as $idVertice => $vertice) {
+                                if ($idVertice == $_POST["origen-mostrar-recorrido-anchura"]) {
+                                    $camino = $_SESSION["grafo"]->recorridoAnchura($_POST["origen-mostrar-recorrido-anchura"]);
+                                    
+                                    for ($i = 0; $i < count($camino); $i ++) {
+                                        if ($i == (count($camino) - 1)) {
+                                            $respuesta .= $camino[$i];
+                                        } else {
+                                            $respuesta .= $camino[$i] . " - ";
+                                        }
+                                    }
+                                    
+                                    $bandera = true;
+                                    break;
                                 } else {
-                                    $respuesta .= $camino[$i] . " - ";
+                                    $bandera = false;
                                 }
                             }
                             
-                            if (!$camino) {
+                            if ($bandera) {
+                                echo "Swal.fire({
+                                        title: 'Mostrar Recorrido Anchura',
+                                        text: 'El recorrido es: $respuesta',
+                                        icon: 'info',
+                                        confirmButtonText: 'Seguir!'
+                                })";
+                            } else {
                                 echo "Swal.fire({
                                     title: 'Mostrar Recorrido Anchura',
                                     text: 'No existe el nodo',
                                     icon: 'error',
                                     confirmButtonText: 'Seguir!'
                                 })";
-                            } else {
-                                echo "Swal.fire({
-                                        title: 'Mostrar Recorrido Anchura',
-                                        text: 'El recorrido es: $respuesta',
-                                        icon: 'info',
-                                        confirmButtonText: 'Seguir!'
-                                    })";
                             }
                         }
                     ?>
@@ -574,31 +586,43 @@
             <script type="text/javascript">
                     <?php
                         if (isset($_POST["mostrar-recorrido-profundidad"])) {
-                            $camino = $_SESSION["grafo"]->recorridoProfundidad($_POST["origen-mostrar-recorrido-profundidad"]);
+                            $bandera;
                             $respuesta = "";
+                            $camino;
                             
-                            for ($i = 0; $i < count($camino); $i ++) {
-                                if ($i == (count($camino) - 1)) {
-                                    $respuesta .= $camino[$i];
+                            foreach ($_SESSION["grafo"]->getVector() as $idVertice => $vertice) {
+                                if ($idVertice == $_POST["origen-mostrar-recorrido-profundidad"]) {
+                                    $camino = $_SESSION["grafo"]->recorridoProfundidad($_POST["origen-mostrar-recorrido-profundidad"]);
+                                    
+                                    for ($i = 0; $i < count($camino); $i ++) {
+                                        if ($i == (count($camino) - 1)) {
+                                            $respuesta .= $camino[$i];
+                                        } else {
+                                            $respuesta .= $camino[$i] . " - ";
+                                        }
+                                    }
+                                    
+                                    $bandera = true;
+                                    break;
                                 } else {
-                                    $respuesta .= $camino[$i] . " - ";
+                                    $bandera = false;
                                 }
                             }
                             
-                            if (!$camino) {
+                            if ($bandera) {
                                 echo "Swal.fire({
-                                    title: 'Mostrar Recorrido Anchura',
+                                        title: 'Mostrar Recorrido Profundidad',
+                                        text: 'El recorrido es: $respuesta',
+                                        icon: 'info',
+                                        confirmButtonText: 'Seguir!'
+                                })";
+                            } else {
+                                echo "Swal.fire({
+                                    title: 'Mostrar Recorrido Profundidad',
                                     text: 'No existe el nodo',
                                     icon: 'error',
                                     confirmButtonText: 'Seguir!'
                                 })";
-                            } else {
-                                echo "Swal.fire({
-                                        title: 'Mostrar Recorrido Anchura',
-                                        text: 'El recorrido es: $respuesta',
-                                        icon: 'info',
-                                        confirmButtonText: 'Seguir!'
-                                    })";
                             }
                         }
                     ?>
